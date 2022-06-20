@@ -1,0 +1,67 @@
+#include<stdio.h>
+#include<unistd.h>
+#include<pthread.h>
+void * editor()
+{
+        while(1){
+                printf("\n editor running\n");
+        sleep(1);
+}
+}
+
+void * spellchecker()
+{
+        while(1){
+                printf("\n spellchecker running\n");
+        sleep(1);
+}
+}
+
+void main()
+{
+        pthread_t th1, th2;
+        //create a thread and add it to the ready queue
+
+        pthread_create(&th1, NULL, (void *) editor , NULL);
+        pthread_create(&th2, NULL, (void *) spellchecker , NULL);
+
+        while(1){
+                printf("\n main thread running \n");
+                sleep(1);
+        }
+}
+
+
+
+#include<stdio.h>
+#include<unistd.h>
+#include<pthread.h>
+void * editor()
+{
+        while(1){
+                printf("\n editor running pid=%d thread id= %ld \n",getpid(),pthread_self());
+        sleep(1);
+}
+}
+
+void * spellchecker()
+{
+        while(1){
+                printf("\n spellchecker running pid=%d thread id =%ld \n",getpid(),pthread_self());
+        sleep(1);
+}
+}
+
+void main()
+{
+        pthread_t th1, th2;
+        //create a thread and add it to the ready queue
+
+        pthread_create(&th1, NULL, (void *) editor , NULL);
+        pthread_create(&th2, NULL, (void *) spellchecker , NULL);
+
+        while(1){
+                printf("\n main thread running pid=%d threadid =%ld\n",getpid(),pthread_self());
+                sleep(1);
+        }
+}
