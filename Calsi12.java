@@ -17,7 +17,7 @@ public class Calsi12
             System.out.println("4) Division");
             System.out.println("5) Exit");
             System.out.print("Enter your choice: ");
-            ch = reader.nextInt();
+            
             if(ch==5)
             {
                 flag = 1;
